@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="{% url 'felviadmin:addFelvetelizo' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Új adatok felvitele</legend>
+            <p>
+                <label>
+                    Szak: <select name="szak_valaszt" id="szak_valaszt">
+                        {% for item in szakok %}
+                            <option value="{{item.id}}">{{item.szakNev}}</option>
+                        {% endfor %}
+                        <option value="addSzak">Új Szak hozzáadása</option>
+
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Halgató neve: <input type="text" name="nev" id="nev">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Születési év: <input type="number" name="szulEv" id="szulEv">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Pontszám: <input type="number" name="pontszam" id="pontszam" min="0" step="1">
+                </label>
+            </p>
+            <p>
+                <label>
+                    A kép itt lesz talán :D
+                </label>
+            </p>
+            <p>
+                <input type="submit" value="Adatok hozzáadása">
+            </p>
+
+        </fieldset>
+    
+    </form>
+
+{% endblock content %}
+    

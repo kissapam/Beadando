@@ -1,42 +1,6 @@
-# Django
-*.log
-*.pot
-*.pyc
-__pycache__/
-db.sqlite3
-media/
-Lib
+Include
 Scripts
-
-
-# Python
-*.py[cod]
-*$py.class
-.Python
-env/
-venv/
-ENV/
-.venv/
-env.bak/
-venv.bak/
-
-# IDE-k és szerkesztők
-.idea/
-.vscode/
-*.sublime-workspace
-*.sublime-project
-
-# Tesztelés és lefedettség
-.tox/
-.coverage
-.coverage.*
-.cache
-.pytest_cache/
-nosetests.xml
-coverage.xml
-*.cover
-
-# Egyéb
-*.bak
-*.swp
-.DS_Store
+Lib
+db.sqllite3
+_pycache_
+manage._pycache_

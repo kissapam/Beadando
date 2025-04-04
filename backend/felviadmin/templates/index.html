@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<div class="row">
+  {% for item in adatok %}
+  <div class="col-12 col-m-6 col-lg-3">
+    <div class="card">
+      <img class="card-img-top" src="img_avatar1.png" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">{{item.nev}}</h4>
+        <p class="card-text">
+            <strong>Születési év: </strong>{{item.szulEv}} <br>
+            <strong>Pontszám: </strong>{{item.pontszam}} <br>
+            <strong>Szakirány: </strong>{{item.szakId.szakNev}} <br>
+            <strong>Támogatott ? </strong>{{item.szakId.tamogatott}} <br>
+        </p>
+        {% comment %} A törlés megoldása egy paraméterezett form segítségével {% endcomment %}
+          <form action=" {% url 'felviadmin:deleteFelvetelizo' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary"  value="Törlés"></a>
+          </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <a href="{% url 'felviadmin:addPage' %}">Új adat hozzáadása</a>
+</div>
+
+{% endblock content %}
