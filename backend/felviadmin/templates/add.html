@@ -6,7 +6,7 @@
             <legend>Új adatok felvitele</legend>
             <p>
                 <label>
-                    Szak: <select name="szak_valaszt" id="szak_valaszt">
+                    Szak: <select name="szak_valaszt" id="szak_valaszt" onchange="mezoMegjelenit()">
                         {% for item in szakok %}
                             <option value="{{item.id}}">{{item.szakNev}}</option>
                         {% endfor %}
@@ -14,6 +14,7 @@
 
                     </select>
                 </label>
+                <input type="text" name="ujSzak" id="ujSzak" hidden>
             </p>
             <p>
                 <label>
@@ -42,6 +43,19 @@
         </fieldset>
     
     </form>
+    <script>
+        {% comment %} Ha a select-ben az option értéke egyenlő "addSzak" ( tehát az van kiválasztva)  akkor a beviteli 
+        mező megjelenítését az alábbi függvénnyel vezérlem a select "onchange" eseményén keresztül {% endcomment %}
+        function mezoMegjelenit()
+        {
+            let selected = document.getElementById("szak_valaszt").value;
+            console.log(selected);
+            if (selected == "addSzak")
+                document.getElementById("ujSzak").hidden = false;
+            else
+                document.getElementById("ujSzak").hidden = true;
+        }
+    </script>
 
 {% endblock content %}
     
